@@ -1,5 +1,6 @@
 Solving Brainvita
 =================
+:toc:
 
 Representing board
 -------------------
@@ -51,7 +52,7 @@ which hole is empty. For instance, given the possible move 0-1-2, we can either 
 hole at 0 or 2 (and marbles at 1,2 or 0,1) to declare a valid move.
 
 All possible moves
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 By symmetry there should be same number of horizontal and vertical moves. There are
 4 possible horizontal moves with just the top 2 rows and bottom 2 rows. On the centre
@@ -80,7 +81,7 @@ a possible board status, at a given point in time. The root node is the initial 
 
 The children at each node, represent every possible next move. Theoretically, we can
 have upto 28 children as there are as many possible moves, but not all of them are going
-to be possible.
+to be valid.
 
 Each level in tree, will have exactly the same number of ones(marbles) by nature of the
 game. At any point, we can arrive at the same state that is already arrived by other moves.
