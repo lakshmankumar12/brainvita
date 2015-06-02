@@ -6,7 +6,7 @@ What is Brainvita
 -----------------
 
 Brainvita is a single player game. This is explained
-[http://en.wikipedia.org/wiki/Peg_solitaire]here. The English variant is attempted here.
+http://en.wikipedia.org/wiki/Peg_solitaire[here]. The English variant is attempted here.
 
 Solution
 --------
