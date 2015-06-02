@@ -1,22 +1,28 @@
 #!/usr/bin/python
 
 from __future__ import print_function
+import sys
+import logging
 
-def display_board(board):
-  ''' Given a board as a bit-map of 33 bits, it will print
-      the board on screen '''
+def display_board(board, screenPrint=0):
+  ''' Given a board as a bit-map of 33 bits, it will return a string
+      of the board. This can be printed or logged '''
+  op=""
   for i in range(33):
     if i in (0,3,27,30):
       #print a indentation for these squares
-      print("      ",end="")
+      op+="      "
     hole=board%2
     if hole:
-      print(" o ",end="")
+      op+=" o "
     else:
-      print(" . ",end="")
+      op+=" . "
     if i in (2,5,12,19,26,29,32):
-      print("")
+      op+="\n"
     board=board>>1
+  if screenPrint:
+    print(op)
+  return op
 
 def generateExtractMask(masklet):
   (first,second,third) = masklet
@@ -62,12 +68,12 @@ def generateMasks():
   return (extractMasks, checkMasks)
 
 def possible_move(board, extractMask, checkMasks):
-  onlymaskbits = board & extractMask;
+  onlymaskbits = board.board & extractMask;
   allOnes = 0x1ffffffff
   for i in range(2):
     if (onlymaskbits | checkMasks[i]) == checkMasks[i]:
       # we have a valid move.
-      boardWithoutMove = board & (~extractMask)
+      boardWithoutMove = board.board & (~extractMask)
       afterMask = ~(checkMasks[i])
       afterMask = afterMask & extractMask
       boardAfterMove = boardWithoutMove | afterMask
@@ -75,40 +81,64 @@ def possible_move(board, extractMask, checkMasks):
   return 0
 
 class BoardState:
-  def __init__(self, board, level, parent):
+  def __init__(self, board, parent):
     self.board = board
-    self.mylevel = level
     self.parent = parent
+    if parent:
+      self.mylevel = parent.mylevel - 1
+    else:
+      self.mylevel = 32
     self.nextmoves = []
     self.duplicateOf = None
     self.duplicates = []
 
+def print_parent_trail(board):
+  if (board.mylevel <= 32):
+    display_board(board.board,1)
+    print_parent_trail(board.parent)
+
 class GameContext:
   def __init__(self):
-    self.beginBoard = BoardState(0x1fffeffff, 33, None)
+    self.beginBoard = BoardState(0x1fffeffff, None)
     (self.extractMasks,self.checkMasks) = generateMasks()
+    self.allStatesAtLevel = []
+    for i in range(32):
+      self.allStatesAtLevel.append([])
 
   def make_move(self, currentBoard):
+    if currentBoard.mylevel == 1:
+      print("Ahoy! we have a winning move")
+      print_parent_trail(currentBoard)
+      sys.exit(0)
     for (em,cm) in zip(self.extractMasks,self.checkMasks):
       result = possible_move(currentBoard, em, cm)
       if result:
         nextBoard = BoardState(result, currentBoard)
-        currentBoard.nextmoves.append()
+        currentBoard.nextmoves.append(nextBoard)
+        duplicate = 0
+        for i in self.allStatesAtLevel[nextBoard.mylevel]:
+          if result == i.board:
+            duplicate = 1
+            i.board.duplicates.append(nextBoard)
+            nextBoard.duplicateOf = i
+            return
+        if not duplicate:
+          self.allStatesAtLevel[nextBoard.mylevel].append(nextBoard)
 
+logging.basicConfig(filename="brainvita.log",level=logging.DEBUG)
 
-def make_move(gameContext):
-  pass
+gameContext = GameContext()
 
 def debug_prints():
-  gameContext = GameContext()
   for i in gameContext.extractMasks:
     print("---")
-    display_board(i)
+    display_board(i,1)
   for i in gameContext.checkMasks:
     print("---")
-    display_board(i[0])
+    display_board(i[0],1)
     print("---")
-    display_board(i[1])
+    display_board(i[1],1)
 
 if __name__ == "__main__":
   debug_prints()
+  gameContext.make_move(gameContext.beginBoard)
