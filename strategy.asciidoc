@@ -60,17 +60,17 @@ rows, we have 6 possible moves each row. Thus total horizontal moves are
 
 * Top : 2
 * Bottom: 2
-* Center: 2*6 = 12
-* *Total: 14*
+* Center: 3*5 = 15
+* *Total: 19*
 
-So, we have 28 possible moves at each point. Depending on holes, each move may be valid
+So, we have 38 possible moves at each point. Depending on holes, each move may be valid
 or not.
 
 Masks
 ~~~~~
 
 To quickly decide on the next move given a board (a bit-map of size-33), we will
-pre-create 28 bit-masks and run the board through that.
+pre-create 38 bit-masks and run the board through that.
 
 Strategy
 --------
@@ -80,7 +80,7 @@ a possible board status, at a given point in time. The root node is the initial 
 1, and 1 zero board-status.
 
 The children at each node, represent every possible next move. Theoretically, we can
-have upto 28 children as there are as many possible moves, but not all of them are going
+have upto 38 children as there are as many possible moves, but not all of them are going
 to be valid.
 
 Each level in tree, will have exactly the same number of ones(marbles) by nature of the
