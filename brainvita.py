@@ -14,9 +14,9 @@ def display_board(board, screenPrint=0):
       op+="      "
     hole=board%2
     if hole:
-      op+=" o "
+      op+="  o"
     else:
-      op+=" . "
+      op+="  ."
     if i in (2,5,12,19,26,29,32):
       op+="\n"
     board=board>>1
@@ -69,18 +69,20 @@ def generateMasks():
 
 def possible_move(board, extractMask, checkMasks):
   onlymaskbits = board.board & extractMask;
-  allOnes = 0x1ffffffff
   for i in range(2):
-    if (onlymaskbits | checkMasks[i]) == checkMasks[i]:
+    if (onlymaskbits ^ checkMasks[i]) == 0:
       # we have a valid move.
       boardWithoutMove = board.board & (~extractMask)
       afterMask = ~(checkMasks[i])
       afterMask = afterMask & extractMask
       boardAfterMove = boardWithoutMove | afterMask
       return boardAfterMove
+  logging.debug("failed")
   return 0
 
 class BoardState:
+  boardsCreated = 0
+
   def __init__(self, board, parent):
     self.board = board
     self.parent = parent
@@ -91,10 +93,15 @@ class BoardState:
     self.nextmoves = []
     self.duplicateOf = None
     self.duplicates = []
+    BoardState.boardsCreated += 1
+    if self.mylevel > 22:
+      print("Creating %d th board at level:%d"%(BoardState.boardsCreated,self.mylevel))
+    if BoardState.boardsCreated % 100000 == 0:
+      print("Created %d boards so far.. level:%d"%(BoardState.boardsCreated,self.mylevel))
 
 def print_parent_trail(board):
-  if (board.mylevel <= 32):
-    display_board(board.board,1)
+  display_board(board.board,1)
+  if board.parent:
     print_parent_trail(board.parent)
 
 class GameContext:
@@ -110,22 +117,30 @@ class GameContext:
       print("Ahoy! we have a winning move")
       print_parent_trail(currentBoard)
       sys.exit(0)
+    logging.debug("Entering with %d and board of:%x\n%s"%(currentBoard.mylevel, currentBoard.board, display_board(currentBoard.board)))
+    atleast_one_next_move = 0
     for (em,cm) in zip(self.extractMasks,self.checkMasks):
+      logging.debug("Trying with em of %x and checkMasks:%x and %x"%(em,cm[0],cm[1]))
       result = possible_move(currentBoard, em, cm)
       if result:
+        atleast_one_next_move = 1
         nextBoard = BoardState(result, currentBoard)
         currentBoard.nextmoves.append(nextBoard)
         duplicate = 0
         for i in self.allStatesAtLevel[nextBoard.mylevel]:
           if result == i.board:
+            logging.debug("Resulting Board %x is a duplicate"%result)
             duplicate = 1
-            i.board.duplicates.append(nextBoard)
+            i.duplicates.append(nextBoard)
             nextBoard.duplicateOf = i
             return
         if not duplicate:
           self.allStatesAtLevel[nextBoard.mylevel].append(nextBoard)
+          self.make_move(nextBoard)
+    if not atleast_one_next_move:
+      logging.debug("There are no possible moves for this board")
 
-logging.basicConfig(filename="brainvita.log",level=logging.DEBUG)
+logging.basicConfig(filename="brainvita.log",level=logging.INFO,mode="w")
 
 gameContext = GameContext()
 
@@ -140,5 +155,5 @@ def debug_prints():
     display_board(i[1],1)
 
 if __name__ == "__main__":
-  debug_prints()
+  #debug_prints()
   gameContext.make_move(gameContext.beginBoard)
