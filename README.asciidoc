@@ -1,0 +1,18 @@
+Try Solving Brainvita Game
+===========================
+:toc:
+
+What is Brainvita
+-----------------
+
+Brainvita is a single player game. This is explained
+[http://en.wikipedia.org/wiki/Peg_solitaire]here. The English variant is attempted here.
+
+Solution
+--------
+
+The solution is explained in detailed in the Strategy file available in this repository.
+
+The first arrived result, obtained by running the program, is also saved in the repository
+for reference.
+

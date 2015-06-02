@@ -1,0 +1,313 @@
+$ ./brainvita.py
+Creating 1 th board at level:32
+Creating 2 th board at level:31
+Creating 3 th board at level:30
+Creating 4 th board at level:29
+Creating 5 th board at level:28
+Creating 6 th board at level:27
+Creating 7 th board at level:26
+Creating 8 th board at level:25
+Creating 167993 th board at level:25
+Creating 167999 th board at level:25
+Creating 168001 th board at level:25
+Creating 240676 th board at level:25
+Creating 406057 th board at level:25
+Creating 674545 th board at level:26
+Creating 674546 th board at level:25
+Creating 712216 th board at level:25
+Creating 712217 th board at level:26
+Creating 712218 th board at level:25
+Creating 712219 th board at level:26
+Creating 712220 th board at level:25
+Creating 972499 th board at level:25
+Creating 972501 th board at level:25
+Creating 972503 th board at level:25
+Creating 972505 th board at level:25
+Creating 972507 th board at level:25
+Creating 972509 th board at level:26
+Creating 972510 th board at level:25
+Created 1M boards so far.. level:11
+Creating 1153891 th board at level:25
+Creating 1153893 th board at level:25
+Creating 1153895 th board at level:25
+Creating 1153899 th board at level:25
+Creating 1153901 th board at level:25
+Creating 1254120 th board at level:25
+Creating 1254128 th board at level:25
+Creating 1333538 th board at level:26
+Creating 1333539 th board at level:25
+Creating 1333543 th board at level:25
+Creating 1333544 th board at level:27
+Creating 1333545 th board at level:26
+Creating 1333546 th board at level:25
+Creating 1368746 th board at level:25
+Creating 1368748 th board at level:25
+Creating 1368758 th board at level:25
+Creating 1419523 th board at level:25
+Creating 1497028 th board at level:25
+Creating 1497030 th board at level:26
+Creating 1497031 th board at level:25
+Creating 1497032 th board at level:26
+Creating 1497033 th board at level:25
+Creating 1497035 th board at level:25
+Creating 1497036 th board at level:26
+Creating 1497037 th board at level:25
+Creating 1497038 th board at level:26
+Creating 1497039 th board at level:25
+Ahoy! we have a winning move
+        .  .  .
+        .  .  .
+  .  .  .  .  .  .  .
+  .  .  .  o  .  .  .
+  .  .  .  .  .  .  .
+        .  .  .
+        .  .  .
+
+        .  .  .
+        .  .  .
+  .  .  .  .  .  .  .
+  .  .  .  .  .  .  .
+  .  .  .  o  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  .
+        .  .  .
+  .  .  .  .  .  .  .
+  .  .  .  .  .  .  .
+  .  o  o  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  .
+        .  .  .
+  .  .  o  .  .  .  .
+  .  .  o  .  .  .  .
+  .  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  .
+        .  .  .
+  o  o  .  .  .  .  .
+  .  .  o  .  .  .  .
+  .  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  .
+        .  .  .
+  o  .  o  o  .  .  .
+  .  .  o  .  .  .  .
+  .  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  .
+        .  .  .
+  o  .  o  .  o  o  .
+  .  .  o  .  .  .  .
+  .  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        .  .  o
+  o  .  o  .  .  o  .
+  .  .  o  .  .  .  .
+  .  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        .  .  o
+  .  .  o  .  .  o  .
+  o  .  o  .  .  .  .
+  o  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        .  .  o
+  o  o  .  .  .  o  .
+  o  .  o  .  .  .  .
+  o  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        o  .  o
+  o  o  o  .  .  o  .
+  o  .  .  .  .  .  .
+  o  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        o  .  o
+  o  o  o  o  o  .  .
+  o  .  .  .  .  .  .
+  o  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        o  .  o
+  o  o  o  o  .  o  o
+  o  .  .  .  .  .  .
+  o  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  .  .  o  .  .
+  o  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  .  .  o  .  .
+  o  .  o  o  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  .  .  o  .  .
+  o  .  .  o  .  .  .
+        o  o  .
+        o  .  .
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  o  .  .
+  o  .  o  o  .  .  .
+        .  o  .
+        o  .  .
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  o  .  .
+  o  .  o  o  .  .  .
+        .  o  .
+        .  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  o  .  .
+  o  .  .  o  .  .  .
+        o  o  .
+        o  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  .  .  .
+  o  .  .  o  o  .  .
+        o  o  o
+        o  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  .  .  .
+  o  .  .  o  .  o  o
+        o  o  o
+        o  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  .  .  .
+  o  o  o  .  .  o  o
+        o  o  o
+        o  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  o  o
+  o  .  o  .  .  .  .
+  o  o  o  o  o  .  o
+        o  o  o
+        o  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  .  o
+  o  .  o  .  .  o  .
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        .  .  o
+        o  .  .
+  o  o  o  o  o  .  o
+  o  .  o  o  o  .  .
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  .
+        o  .  .
+  o  o  o  o  o  .  o
+  o  .  o  o  o  .  .
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  o
+        o  .  o
+  o  o  o  o  .  .  o
+  o  .  o  o  o  .  .
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  o
+        o  .  o
+  o  o  o  .  o  o  o
+  o  .  o  o  o  .  .
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  o
+        o  o  o
+  o  o  o  o  o  o  o
+  o  .  o  .  o  .  .
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  o
+        o  o  o
+  o  o  o  o  o  o  o
+  o  .  o  .  .  o  o
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  o
+        o  o  o
+  o  o  o  o  o  o  o
+  o  .  .  o  o  o  o
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
+        o  o  o
+        o  o  o
+  o  o  o  o  o  o  o
+  o  o  o  .  o  o  o
+  o  o  o  o  o  o  o
+        o  o  o
+        o  o  o
+
