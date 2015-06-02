@@ -94,10 +94,10 @@ class BoardState:
     self.duplicateOf = None
     self.duplicates = []
     BoardState.boardsCreated += 1
-    if self.mylevel > 22:
+    if self.mylevel > 24:
       print("Creating %d th board at level:%d"%(BoardState.boardsCreated,self.mylevel))
-    if BoardState.boardsCreated % 100000 == 0:
-      print("Created %d boards so far.. level:%d"%(BoardState.boardsCreated,self.mylevel))
+    if BoardState.boardsCreated % 1000000 == 0:
+      print("Created %dM boards so far.. level:%d"%(BoardState.boardsCreated/1000000,self.mylevel))
 
 def print_parent_trail(board):
   display_board(board.board,1)
@@ -110,7 +110,7 @@ class GameContext:
     (self.extractMasks,self.checkMasks) = generateMasks()
     self.allStatesAtLevel = []
     for i in range(32):
-      self.allStatesAtLevel.append([])
+      self.allStatesAtLevel.append({})
 
   def make_move(self, currentBoard):
     if currentBoard.mylevel == 1:
@@ -126,17 +126,14 @@ class GameContext:
         atleast_one_next_move = 1
         nextBoard = BoardState(result, currentBoard)
         currentBoard.nextmoves.append(nextBoard)
-        duplicate = 0
-        for i in self.allStatesAtLevel[nextBoard.mylevel]:
-          if result == i.board:
-            logging.debug("Resulting Board %x is a duplicate"%result)
-            duplicate = 1
-            i.duplicates.append(nextBoard)
-            nextBoard.duplicateOf = i
-            return
-        if not duplicate:
-          self.allStatesAtLevel[nextBoard.mylevel].append(nextBoard)
-          self.make_move(nextBoard)
+        if result in self.allStatesAtLevel[nextBoard.mylevel]:
+          logging.debug("Resulting Board %x is a duplicate"%result)
+          duplicate = self.allStatesAtLevel[nextBoard.mylevel][result]
+          duplicate.duplicates.append(nextBoard)
+          nextBoard.duplicateOf = duplicate
+          return
+        self.allStatesAtLevel[nextBoard.mylevel][result] = nextBoard;
+        self.make_move(nextBoard)
     if not atleast_one_next_move:
       logging.debug("There are no possible moves for this board")
 
