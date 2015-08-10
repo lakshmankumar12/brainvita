@@ -90,7 +90,6 @@ class BoardState:
       self.mylevel = parent.mylevel - 1
     else:
       self.mylevel = 32
-    self.nextmoves = []
     self.duplicateOf = None
     self.duplicates = []
     BoardState.boardsCreated += 1
@@ -125,7 +124,6 @@ class GameContext:
       if result:
         atleast_one_next_move = 1
         nextBoard = BoardState(result, currentBoard)
-        currentBoard.nextmoves.append(nextBoard)
         if result in self.allStatesAtLevel[nextBoard.mylevel]:
           logging.debug("Resulting Board %x is a duplicate"%result)
           duplicate = self.allStatesAtLevel[nextBoard.mylevel][result]
