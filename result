@@ -1,4 +1,3 @@
-$ ./brainvita.py
 Creating 1 th board at level:32
 Creating 2 th board at level:31
 Creating 3 th board at level:30
@@ -58,7 +57,7 @@ Ahoy! we have a winning move
         .  .  .
         .  .  .
   .  .  .  .  .  .  .
-  .  .  .  o  .  .  .
+  .  .  .  x  .  .  .
   .  .  .  .  .  .  .
         .  .  .
         .  .  .
@@ -67,7 +66,7 @@ Ahoy! we have a winning move
         .  .  .
   .  .  .  .  .  .  .
   .  .  .  .  .  .  .
-  .  .  .  o  .  .  .
+  .  .  .  x  .  .  .
         .  o  .
         .  .  .
 
@@ -75,21 +74,13 @@ Ahoy! we have a winning move
         .  .  .
   .  .  .  .  .  .  .
   .  .  .  .  .  .  .
-  .  o  o  .  .  .  .
+  .  o  x  .  .  .  .
         .  o  .
         .  .  .
 
         .  .  .
         .  .  .
-  .  .  o  .  .  .  .
-  .  .  o  .  .  .  .
-  .  o  .  .  .  .  .
-        .  o  .
-        .  .  .
-
-        .  .  .
-        .  .  .
-  o  o  .  .  .  .  .
+  .  .  x  .  .  .  .
   .  .  o  .  .  .  .
   .  o  .  .  .  .  .
         .  o  .
@@ -97,7 +88,7 @@ Ahoy! we have a winning move
 
         .  .  .
         .  .  .
-  o  .  o  o  .  .  .
+  o  x  .  .  .  .  .
   .  .  o  .  .  .  .
   .  o  .  .  .  .  .
         .  o  .
@@ -105,15 +96,15 @@ Ahoy! we have a winning move
 
         .  .  .
         .  .  .
-  o  .  o  .  o  o  .
+  o  .  o  x  .  .  .
   .  .  o  .  .  .  .
   .  o  .  .  .  .  .
         .  o  .
         .  .  .
 
-        .  .  o
-        .  .  o
-  o  .  o  .  .  o  .
+        .  .  .
+        .  .  .
+  o  .  o  .  x  o  .
   .  .  o  .  .  .  .
   .  o  .  .  .  .  .
         .  o  .
@@ -121,7 +112,15 @@ Ahoy! we have a winning move
 
         .  .  o
         .  .  o
-  .  .  o  .  .  o  .
+  x  .  o  .  .  o  .
+  .  .  o  .  .  .  .
+  .  o  .  .  .  .  .
+        .  o  .
+        .  .  .
+
+        .  .  o
+        .  .  o
+  .  .  x  .  .  o  .
   o  .  o  .  .  .  .
   o  o  .  .  .  .  .
         .  o  .
@@ -130,14 +129,14 @@ Ahoy! we have a winning move
         .  .  o
         .  .  o
   o  o  .  .  .  o  .
-  o  .  o  .  .  .  .
+  o  .  x  .  .  .  .
   o  o  .  .  .  .  .
         .  o  .
         .  .  .
 
         .  .  o
         o  .  o
-  o  o  o  .  .  o  .
+  o  o  o  .  .  x  .
   o  .  .  .  .  .  .
   o  o  .  .  .  .  .
         .  o  .
@@ -145,14 +144,14 @@ Ahoy! we have a winning move
 
         .  .  o
         o  .  o
-  o  o  o  o  o  .  .
+  o  o  o  o  x  .  .
   o  .  .  .  .  .  .
   o  o  .  .  .  .  .
         .  o  .
         .  .  .
 
         .  .  o
-        o  .  o
+        o  .  x
   o  o  o  o  .  o  o
   o  .  .  .  .  .  .
   o  o  .  .  .  .  .
@@ -163,7 +162,7 @@ Ahoy! we have a winning move
         o  .  .
   o  o  o  o  o  o  o
   o  .  .  .  o  .  .
-  o  o  .  .  .  .  .
+  o  x  .  .  .  .  .
         .  o  .
         .  .  .
 
@@ -171,7 +170,7 @@ Ahoy! we have a winning move
         o  .  .
   o  o  o  o  o  o  o
   o  .  .  .  o  .  .
-  o  .  o  o  .  .  .
+  o  .  x  o  .  .  .
         .  o  .
         .  .  .
 
@@ -180,7 +179,7 @@ Ahoy! we have a winning move
   o  o  o  o  o  o  o
   o  .  .  .  o  .  .
   o  .  .  o  .  .  .
-        o  o  .
+        x  o  .
         o  .  .
 
         .  .  o
@@ -189,20 +188,20 @@ Ahoy! we have a winning move
   o  .  o  .  o  .  .
   o  .  o  o  .  .  .
         .  o  .
-        o  .  .
+        x  .  .
 
         .  .  o
         o  .  .
   o  o  o  o  o  o  o
   o  .  o  .  o  .  .
-  o  .  o  o  .  .  .
+  o  .  x  o  .  .  .
         .  o  .
         .  o  o
 
         .  .  o
         o  .  .
   o  o  o  o  o  o  o
-  o  .  o  .  o  .  .
+  o  .  o  .  x  .  .
   o  .  .  o  .  .  .
         o  o  .
         o  o  o
@@ -211,7 +210,7 @@ Ahoy! we have a winning move
         o  .  .
   o  o  o  o  o  o  o
   o  .  o  .  .  .  .
-  o  .  .  o  o  .  .
+  o  .  .  o  x  .  .
         o  o  o
         o  o  o
 
@@ -219,7 +218,7 @@ Ahoy! we have a winning move
         o  .  .
   o  o  o  o  o  o  o
   o  .  o  .  .  .  .
-  o  .  .  o  .  o  o
+  o  .  .  x  .  o  o
         o  o  o
         o  o  o
 
@@ -227,13 +226,13 @@ Ahoy! we have a winning move
         o  .  .
   o  o  o  o  o  o  o
   o  .  o  .  .  .  .
-  o  o  o  .  .  o  o
+  o  o  o  .  .  x  o
         o  o  o
         o  o  o
 
         .  .  o
         o  .  .
-  o  o  o  o  o  o  o
+  o  o  o  o  o  x  o
   o  .  o  .  .  .  .
   o  o  o  o  o  .  o
         o  o  o
@@ -242,12 +241,12 @@ Ahoy! we have a winning move
         .  .  o
         o  .  .
   o  o  o  o  o  .  o
-  o  .  o  .  .  o  .
+  o  .  o  .  .  x  .
   o  o  o  o  o  o  o
         o  o  o
         o  o  o
 
-        .  .  o
+        .  .  x
         o  .  .
   o  o  o  o  o  .  o
   o  .  o  o  o  .  .
@@ -257,7 +256,7 @@ Ahoy! we have a winning move
 
         o  o  .
         o  .  .
-  o  o  o  o  o  .  o
+  o  o  o  o  x  .  o
   o  .  o  o  o  .  .
   o  o  o  o  o  o  o
         o  o  o
@@ -265,7 +264,7 @@ Ahoy! we have a winning move
 
         o  o  o
         o  .  o
-  o  o  o  o  .  .  o
+  o  o  o  x  .  .  o
   o  .  o  o  o  .  .
   o  o  o  o  o  o  o
         o  o  o
@@ -274,7 +273,7 @@ Ahoy! we have a winning move
         o  o  o
         o  .  o
   o  o  o  .  o  o  o
-  o  .  o  o  o  .  .
+  o  .  o  x  o  .  .
   o  o  o  o  o  o  o
         o  o  o
         o  o  o
@@ -282,7 +281,7 @@ Ahoy! we have a winning move
         o  o  o
         o  o  o
   o  o  o  o  o  o  o
-  o  .  o  .  o  .  .
+  o  .  o  .  x  .  .
   o  o  o  o  o  o  o
         o  o  o
         o  o  o
@@ -290,7 +289,7 @@ Ahoy! we have a winning move
         o  o  o
         o  o  o
   o  o  o  o  o  o  o
-  o  .  o  .  .  o  o
+  o  .  x  .  .  o  o
   o  o  o  o  o  o  o
         o  o  o
         o  o  o
@@ -298,7 +297,7 @@ Ahoy! we have a winning move
         o  o  o
         o  o  o
   o  o  o  o  o  o  o
-  o  .  .  o  o  o  o
+  o  .  .  x  o  o  o
   o  o  o  o  o  o  o
         o  o  o
         o  o  o
