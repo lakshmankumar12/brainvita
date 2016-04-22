@@ -102,6 +102,8 @@ class BoardState:
 def print_parent_trail(board):
   display_board(board.board,1)
   if board.parent:
+    if len(board.duplicates):
+      print("There are %d duplicates for this move"%len(board.duplicates))
     print_parent_trail(board.parent)
 
 class GameContext:
